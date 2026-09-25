@@ -1,114 +1,211 @@
-# NutriVision-FBDMS 🌱
+# 🌿 NutriVision-FBDMS
 
 ### Food-Based Dietary Management System
 
-NutriVision-FBDMS is a web-based dietary management system designed to help users monitor their daily food intake, understand their nutritional consumption, track meals, visualize nutrition trends, and receive personalized food recommendations based on their nutritional requirements.
+NutriVision-FBDMS is a personalized nutrition management platform designed to help users understand, track, and improve their daily dietary intake.
 
-The system combines a React-based frontend, FastAPI backend, PostgreSQL database, nutrition calculation engine, and personalized recommendation engine into a unified dietary management platform.
+The system allows users to maintain their nutritional profile, calculate personalized nutrition targets, record meals, monitor calories and macronutrients, analyze their dietary history, and receive personalized food recommendations based on their nutritional requirements.
+
+---
+
+## 🚀 Live Application
+
+🌐 **Website:**  
+https://nutri-vision-fbdms.vercel.app/
+
+🔗 **Backend API:**  
+https://nutrivision-fbdms.onrender.com/
+
+📚 **Swagger API Documentation:**  
+https://nutrivision-fbdms.onrender.com/docs
 
 ---
 
 ## 📌 Project Overview
 
-Maintaining a balanced diet requires more than simply counting calories. Users need to understand their daily nutritional requirements, record what they consume, identify nutritional gaps, and make informed food choices.
+Maintaining a balanced diet requires more than simply counting calories. Individual nutritional requirements vary depending on factors such as age, height, weight, activity level, and personal goals.
 
-NutriVision-FBDMS addresses this by providing:
+NutriVision-FBDMS addresses this problem by providing a centralized platform where users can:
 
-- User registration and authentication
-- Personalized user profiles
-- Daily calorie and macronutrient targets
-- Food database and food search
-- Meal creation and management
-- Automatic nutritional calculation
-- Daily nutrition tracking
-- Historical nutrition analysis
-- Weekly analytics
-- Personalized food recommendations
-
-The system is designed with a modular architecture so that additional intelligent dietary features can be integrated in future versions.
-
----
-
-## 🎯 Objectives
-
-The main objectives of NutriVision-FBDMS are:
-
-1. To provide users with personalized daily nutritional targets.
-2. To maintain a structured database of food items and their nutritional values.
-3. To allow users to record and manage their daily meals.
-4. To automatically calculate nutritional intake based on food quantity.
-5. To track calories, protein, carbohydrates, fats, and dietary fiber.
-6. To identify nutritional gaps between consumed nutrients and daily targets.
-7. To provide personalized food recommendations.
-8. To visualize historical nutrition data through analytics.
-9. To provide a scalable architecture for future AI-assisted dietary features.
+- Create and manage their account
+- Maintain their personal nutrition profile
+- Calculate personalized daily nutrition targets
+- Search for foods from a nutritional database
+- Create and record meals
+- Specify food quantities
+- Calculate meal-level nutrition
+- Track daily calorie and macronutrient consumption
+- View remaining daily nutritional requirements
+- Analyze historical nutrition data
+- View weekly nutrition trends
+- Receive personalized food recommendations
 
 ---
 
-## ✨ Key Features
+# ✨ Key Features
 
-### 🔐 User Authentication
+## 🔐 User Authentication
 
-Users can:
+The system provides secure user authentication using:
 
-- Register an account
-- Log in securely
-- Access authenticated resources
-- Maintain their own dietary data
-
-Authentication is implemented using JWT-based authentication.
+- User registration
+- User login
+- Password hashing
+- JWT-based authentication
+- Protected API endpoints
+- Token-based frontend authentication
 
 ---
 
-### 👤 Personalized User Profile
+## 👤 User Profile
 
-Users can provide:
+Users can provide information required for personalized nutrition calculations, including:
 
 - Age
 - Height
 - Weight
 - Activity level
-- Dietary preference
-- Fitness goal
+- Dietary goal
+- Dietary preferences
 
-The system uses these parameters to calculate personalized nutrition targets.
-
-#### Supported Activity Levels
-
-- Sedentary
-- Light
-- Moderate
-- Active
-- Very Active
-
-#### Supported Goals
-
-- Weight Loss
-- Maintenance
-- Weight Gain
-
-#### Supported Dietary Preferences
-
-- Vegetarian
-- Non-Vegetarian
-- Vegan
-- Eggetarian
+The profile information is used by the nutrition engine to calculate personalized nutritional requirements.
 
 ---
 
-## 🔥 Nutrition Target Calculation
+## 🎯 Personalized Nutrition Targets
 
-The system calculates personalized nutritional targets using the following pipeline:
+NutriVision-FBDMS calculates daily nutritional targets based on the user's profile.
+
+The nutrition engine calculates:
+
+- Daily calorie requirement
+- Protein requirement
+- Carbohydrate requirement
+- Fat requirement
+- Fiber requirement
+
+The system uses the **Mifflin-St Jeor equation** as the basis for estimating basal metabolic requirements and applies activity-level adjustments to estimate daily energy requirements.
+
+The system also adjusts calorie targets according to the user's selected goal:
+
+- Weight loss
+- Weight maintenance
+- Weight gain
+
+---
+
+# 🍎 Food Database
+
+The system maintains a nutritional food database containing information such as:
+
+- Food name
+- Calories
+- Protein
+- Carbohydrates
+- Fat
+- Fiber
+
+The current database is populated using food composition data from **USDA FoodData Central Foundation Foods**.
+
+Food records are stored in PostgreSQL and can be searched through the application.
+
+---
+
+# 🍽️ Meal Management
+
+Users can create meals and add multiple food items to each meal.
+
+For every food item, the user can specify the consumed quantity.
+
+The system calculates the corresponding nutritional values based on the quantity consumed.
+
+Supported meal operations include:
+
+- Create meal
+- Add food to meal
+- Update food quantity
+- Remove food from meal
+- Delete meal
+- View meals
+
+---
+
+# 📊 Daily Nutrition Tracking
+
+The dashboard provides an overview of the user's nutritional intake for the current day.
+
+It displays:
+
+- Calories consumed
+- Calories remaining
+- Protein consumed
+- Carbohydrates consumed
+- Fat consumed
+- Fiber consumed
+- Progress toward daily targets
+
+The dashboard also provides a visual representation of nutritional progress.
+
+---
+
+# 📈 Nutrition Analytics
+
+The analytics section allows users to examine their dietary patterns over time.
+
+The system provides:
+
+- Daily nutrition history
+- Weekly nutrition summaries
+- Calorie trends
+- Macronutrient trends
+- Target vs consumed values
+
+This helps users understand their overall dietary patterns instead of focusing only on a single meal.
+
+---
+
+# 🥗 Personalized Food Recommendations
+
+NutriVision-FBDMS contains a recommendation engine that analyzes the user's current nutritional intake and identifies foods that may help address nutritional gaps.
+
+The recommendation engine considers factors including:
+
+- Nutritional requirements
+- Current consumption
+- Remaining nutritional targets
+- Dietary compatibility
+- Food nutritional composition
+- Calorie requirements
+- Food quality
+- Suggested serving size
+
+Recommendations include explanations describing why a particular food may be useful.
+
+Users can directly add recommended foods to their meals.
+
+---
+
+# 🧠 Recommendation Engine
+
+The recommendation system follows a rule-based nutritional scoring approach.
+
+The process includes:
 
 ```text
 User Profile
      ↓
-BMR Calculation
+Daily Nutrition Targets
      ↓
-TDEE Calculation
+Current Food Consumption
      ↓
-Goal Adjustment
+Identify Nutritional Gaps
      ↓
-Daily Calorie Target
+Filter Compatible Foods
      ↓
-Macronutrient Targets
+Calculate Food Score
+     ↓
+Apply Nutritional & Calorie Constraints
+     ↓
+Generate Recommendations
+     ↓
+Display Suggested Foods
